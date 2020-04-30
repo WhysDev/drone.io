@@ -1,11 +1,11 @@
 pipeline:
   backend:
-+   group: build
+    group: build
     image: ubuntu
     commands:
       - sleep 30
   frontend:
-+   group: build
+    group: build
     image: ubuntu
     commands:
       - sleep 45

@@ -1,9 +1,11 @@
-kind: pipeline
-name: drone POC
-
-steps:
-- name: test
-  image: ubuntu:bionic
-  commands:
-  - sleep 30
-  - sleep 90
+pipeline:
+  backend:
++   group: build
+    image: ubuntu
+    commands:
+      - sleep 30
+  frontend:
++   group: build
+    image: ubuntu
+    commands:
+      - sleep 45

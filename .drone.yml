@@ -3,14 +3,21 @@ kind: pipeline
 steps:
 - name: step1a
   image: ubuntu
+  command: sleep 3
 - name: step1b
   image: ubuntu
+  command: sleep 3
+  
 - name: step2a
   image: ubuntu
+  command: sleep 3
   depends_on: [ step1a, step1b ]
 - name: step2b
   image: ubuntu
+  command: sleep 3
   depends_on: [ step1a, step1b ]
+
 - name: step3
   image: ubuntu
+  command: sleep 3
   depends_on: [ step2a, step2b ]

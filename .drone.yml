@@ -1,28 +1,13 @@
 kind: pipeline
+type: docker
+name: default
+
+clone:
+  disable: true
 
 steps:
-- name: step1a
-  image: ubuntu
-  commands: 
-    - sleep 3
-- name: step1b
-  image: ubuntu
-  commands: 
-    - sleep 3
-  
-- name: step2a
-  image: ubuntu
-  commands: 
-    - sleep 3
-  depends_on: [ step1a, step1b ]
-- name: step2b
-  image: ubuntu
-  commands: 
-    - sleep 3
-  depends_on: [ step1a, step1b ]
-
-- name: step3
-  image: ubuntu
-  commands: 
-    - sleep 3
-  depends_on: [ step2a, step2b ]
+- name: clone
+  image: alpine/git
+  commands:
+  - git clone https://github.com/octocat/hello-world.git .
+  - git fetch --tags --progress -- origin +refs/heads/*:refs/remotes/origin/* # timeout=10

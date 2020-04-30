@@ -5,14 +5,12 @@ steps:
   image: ubuntu
 - name: step1b
   image: ubuntu
-
 - name: step2a
   image: ubuntu
   depends_on: [ step1a, step1b ]
 - name: step2b
   image: ubuntu
   depends_on: [ step1a, step1b ]
-
 - name: step3
   image: ubuntu
   depends_on: [ step2a, step2b ]
